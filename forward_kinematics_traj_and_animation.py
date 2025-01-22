@@ -84,7 +84,10 @@ axis.set_xlim([0, 12])
 axis.set_ylim([-10, 2])
 axis.grid(True, zorder=1)
 
-l, w = 1, 1  # Car dimensions
+# Set aspect ratio to be equal
+axis.set_aspect('equal', adjustable='box')
+
+l, w = 2, 1  # Car dimensions
 animated_plot, = axis.plot([], [], 'b-', zorder=2)  # Trajectory line
 animated_box = axis.add_patch(plt.Rectangle((0, 0), l, w, fill=True, color='green', zorder=3))
 
