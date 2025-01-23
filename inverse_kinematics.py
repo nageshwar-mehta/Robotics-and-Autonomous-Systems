@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from matplotlib.transforms import Affine2D
 
 # Time parameters
 dt = 0.1  # Time step
@@ -96,4 +98,48 @@ plt.xlabel("Position in X-axis")
 plt.ylabel("Position in Y-axis")
 plt.title("Trajectory in 2D Plane")
 plt.grid()
+plt.show()
+
+
+
+# Animation setup
+
+fig, axis = plt.subplots()
+axis.set_xlim([min(eta[0,:])-2, max(eta[0,:])+2])
+axis.set_ylim([min(eta[1,:])-2, max(eta[1,:])+2])
+axis.grid(True, zorder=1)
+
+# Set aspect ratio to be equal
+axis.set_aspect('equal', adjustable='box')
+
+l, w = 1, 0.5  # Car dimensions
+animated_plot, = axis.plot([], [], 'b-', zorder=2)  # Trajectory line
+animated_box = axis.add_patch(plt.Rectangle((0, 0), l, w, fill=True, color='green', zorder=3))
+
+# Animation update function
+def update_data(frame):
+    animated_plot.set_data(eta[0, :frame], eta[1, :frame])
+    animated_box.set_xy([eta[0, frame] - l / 2, eta[1, frame] - w / 2])
+    animated_box.set_edgecolor('black')
+    animated_box.set_linewidth(0.5)
+
+    # Rotate the rectangle
+    transform = Affine2D().rotate_deg_around(
+        eta[0, frame], eta[1, frame], np.rad2deg(eta[2, frame])
+    ) + axis.transData
+    animated_box.set_transform(transform)
+
+    return animated_plot, animated_box,
+
+# Create animation
+animation = FuncAnimation(
+    fig=fig,  # Figure for the animation
+    func=update_data,  # Function to update each frame
+    frames=len(t),  # Total number of frames (based on time array)
+    interval=dt * 1000,  # Interval between frames in milliseconds
+    repeat=False  # Do not repeat the animation after it finishes
+)
+
+# Save animation
+animation.save('car3.gif')
 plt.show()
