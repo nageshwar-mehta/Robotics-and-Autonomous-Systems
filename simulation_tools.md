@@ -65,3 +65,120 @@
 - If you’re **building a custom battery pack** ➝ **WebOCalc**  
 - If you need **advanced flight simulation** ➝ **PX4 Gazebo or Matlab Simulink**  
 
+
+---
+
+### **Step-by-Step Guide to Using eCalc (DroneCalc) for Battery & Flight Time Testing**  
+🔗 **Go to eCalc:** [https://www.ecalc.ch/xcoptercalc.php](https://www.ecalc.ch/xcoptercalc.php)  
+
+---
+
+## **Step 1: Select Drone Type & Configuration**  
+- **Multicopter Type:** Choose **Quadcopter (4 motors)** (for a DJI Phantom equivalent).  
+- **Battery Cells (LiPo):** Select **4S (14.8V)**.  
+- **Battery Capacity:** Enter **6000mAh** (or your custom capacity).  
+
+---
+
+## **Step 2: Enter Battery Specifications**  
+### **For LiPo (High Performance)**
+- **Cell Type:** Select **LiPo**  
+- **Battery Voltage:** **14.8V (nominal for 4S LiPo)**  
+- **Battery Capacity:** **6000mAh**  
+- **C-Rating (Discharge Rate):** **25C** (for high power output)  
+- **Battery Weight:** **~500g (depends on your battery pack)**  
+
+### **For Li-Ion (Long Flight Time)**
+- **Cell Type:** Select **Li-Ion**  
+- **Battery Voltage:** **14.8V (4S Li-Ion, nominal)**  
+- **Battery Capacity:** **6000mAh (or your selected value)**  
+- **C-Rating:** **8C to 15C**  
+- **Battery Weight:** **~800-1000g**  
+
+---
+
+## **Step 3: Enter Drone Weight & Flight Specs**  
+- **Total Takeoff Weight (including battery):** **1.3-1.5 kg** (for a DJI Phantom 4-like drone).  
+- **Frame Size (Motor-to-Motor Distance):** **350-450mm** (for medium-sized drones).  
+
+---
+
+## **Step 4: Enter Motor & Propeller Details**  
+- **Motor KV (RPM per Volt):** **800-1000KV**  
+- **Motor Efficiency:** **~80% (if using a high-efficiency motor like DJI E310/E5000)**  
+- **Propeller Size:** **9450 (9.4-inch, common for Phantom drones)**  
+
+---
+
+## **Step 5: Click "Calculate" and Analyze Results**  
+✅ **Flight Time:** eCalc will estimate how long the drone will fly per charge.  
+✅ **Power Consumption:** See if the **battery provides enough current for stable flight**.  
+✅ **Efficiency:** Helps determine **if you need a bigger battery or lighter frame**.  
+
+---
+
+
+## **📌 Example Setup (DJI Phantom 4 Pro Equivalent)**
+This setup closely resembles a **DJI Phantom 4 Pro** drone with a **custom LiPo or Li-Ion battery**.
+
+### **1️⃣ General Setup**
+| **Parameter**   | **Value (Example)** |
+|----------------|------------------|
+| **Multicopter Type** | **Quadcopter (4 motors)** |
+| **Frame Size** | **350mm (DJI Phantom 4 size)** |
+| **Total Weight (incl. battery)** | **1.4 kg (1400g)** |
+
+---
+
+### **2️⃣ Battery Setup**
+| **Parameter**   | **Value for LiPo** | **Value for Li-Ion** |
+|----------------|----------------|----------------|
+| **Battery Type** | LiPo | Li-Ion |
+| **Number of Cells** | **4S (14.8V nominal, 16.8V max)** | **4S (14.8V nominal, 16.8V max)** |
+| **Battery Capacity** | **6000mAh** | **6000mAh** |
+| **Discharge Rating (C-Rating)** | **25C (for high power needs)** | **10C (for endurance flight)** |
+| **Battery Weight** | **500g** | **900g** |
+
+---
+
+### **3️⃣ Motor Setup**
+| **Parameter**   | **Value (Example)** |
+|----------------|------------------|
+| **Motor KV (RPM per Volt)** | **900 KV** |
+| **Motor Power per Unit** | **120W - 150W** |
+| **Motor Efficiency** | **80%** |
+| **Motor Max Current** | **20A (total 80A for 4 motors)** |
+
+🔹 **Example Motors:** DJI 2312 960KV, T-Motor MN2212 920KV, or similar.
+
+---
+
+### **4️⃣ Propeller Setup**
+| **Parameter**   | **Value (Example)** |
+|----------------|------------------|
+| **Propeller Size** | **9450 (9.4-inch, DJI Phantom standard)** |
+| **Propeller Material** | **Carbon Fiber / Plastic** |
+| **Pitch** | **4.5 inches** |
+
+---
+
+### **5️⃣ Running the Simulation on eCalc**
+1️⃣ **Go to eCalc:** [https://www.ecalc.ch/xcoptercalc.php](https://www.ecalc.ch/xcoptercalc.php)  
+2️⃣ **Enter values as per the example above**  
+3️⃣ **Click "Calculate"**  
+
+---
+
+### **📊 Expected Results (Flight Time & Power Consumption)**
+| **Parameter**   | **LiPo (4S, 6000mAh, 25C)** | **Li-Ion (4S, 6000mAh, 10C)** |
+|----------------|----------------|----------------|
+| **Hover Time** | **25-28 min** | **30-35 min** |
+| **Full Throttle Time** | **10-12 min** | **12-15 min** |
+| **Peak Current Draw** | **~60A** | **~30A** |
+
+💡 **Key Takeaways:**
+✅ **LiPo is better for high power & aggressive flight.**  
+✅ **Li-Ion gives longer flight time but less burst power.**  
+
+---
+
