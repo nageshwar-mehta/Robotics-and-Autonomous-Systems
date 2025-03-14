@@ -443,6 +443,8 @@ The script will:
 ---
 
 ### **🚀 MATLAB Script to Create Simulink Model**
+
+```matlab
 % MATLAB Script to Create Simulink Model for Drone Battery Simulation
 
 % Create a new Simulink model
@@ -483,6 +485,8 @@ add_line(modelName, 'Current Sensor/1', 'Quadcopter/1');
 save_system(modelName);
 open_system(modelName);
 disp('Drone Battery Simulation Model Created Successfully!');
+```
+
 
 
 This MATLAB script will:  
