@@ -299,3 +299,128 @@ Once you enter all values, **click "Calculate"** to get:
 ✅ **The tool helps you optimize your drone for endurance or performance.**  
 
 ---
+
+### **🚀 MATLAB Simulink (Aerospace Blockset) Guide for Drone Battery Simulation**  
+
+This guide will walk you through **how to simulate a drone battery system using MATLAB Simulink and the Aerospace Blockset**. It covers:  
+- Setting up the **battery model**  
+- Simulating **power consumption & efficiency**  
+- Integrating with **drone flight dynamics**  
+- **References and learning resources**  
+
+---
+
+## **📌 1. Install Required MATLAB Toolboxes**
+Before starting, make sure you have the following installed in MATLAB:  
+✅ **Simulink** (Core simulation environment)  
+✅ **Aerospace Blockset** (For drone dynamics & flight simulation)  
+✅ **Simscape Electrical** (For modeling battery & electrical systems)  
+✅ **Simscape Power Systems** (For energy efficiency & power electronics)  
+✅ **Stateflow (Optional, for advanced logic control like Battery Management Systems - BMS)**  
+
+🔗 **To install toolboxes:**  
+- Open MATLAB, go to **Home → Add-Ons → Get Add-Ons**, and search for the above toolboxes.  
+
+---
+
+## **📌 2. Setting Up the Simulink Model**
+1️⃣ **Open MATLAB and Create a New Simulink Model**  
+- Type `simulink` in the MATLAB command window.  
+- Click **"Blank Model"** and save it as **"Drone_Battery_Model.slx"**.  
+- Open the **Simulink Library Browser** (`Ctrl+Shift+L`).  
+
+---
+
+## **📌 3. Modeling the Battery System**
+### **🔋 3.1 Add & Configure a LiPo Battery Model**
+1️⃣ **Go to**:  
+   - `Simscape → Electrical → Specialized Power Systems → Sources`  
+2️⃣ Drag and drop the **Battery** block.  
+3️⃣ **Set Battery Parameters (Example: 4S LiPo, 6000mAh)**  
+   - **Nominal Voltage:** `14.8V`  
+   - **Capacity:** `6000mAh` (6Ah)  
+   - **Internal Resistance:** `0.02 ohms`  
+   - **Self-Discharge Rate:** `1% per month` (optional)  
+   - **Charge Dynamics:** Enable for real-time discharge simulation  
+
+4️⃣ **Monitor Battery Performance:**  
+   - Add a **Voltage Sensor** (`Simscape → Electrical → Sensors & Measurements`)  
+   - Add a **Current Sensor** to track current draw  
+
+---
+
+### **🔄 3.2 Model Load (Motors & ESCs)**
+1️⃣ **Go to**:  
+   - `Simscape → Electrical → Specialized Power Systems → Machines`  
+2️⃣ Add a **DC Motor** block (or BLDC motor model).  
+3️⃣ Set **Motor Parameters** for a drone motor (Example: DJI Phantom 4 Motor Equivalent):  
+   - **Rated Voltage:** `14.8V`  
+   - **Rated Power:** `150W per motor`  
+   - **Number of Motors:** `4`  
+   - **Efficiency:** `85%`  
+4️⃣ Add an **ESC Model** (Electronic Speed Controller) using:  
+   - `Simscape → Electrical → Power Electronics`  
+5️⃣ Connect the **Battery → ESC → Motor**  
+
+---
+
+## **📌 4. Simulating Drone Dynamics (Aerospace Blockset)**
+### **🚁 4.1 Add a Quadcopter Model**
+1️⃣ **Go to**:  
+   - `Aerospace Blockset → UAV → Vehicle Model`  
+2️⃣ Drag and drop the **Quadcopter Model** block.  
+3️⃣ Set Parameters:  
+   - **Thrust-to-Weight Ratio** → `2.5`  
+   - **Frame Size** → `350mm`  
+   - **Payload Weight** → `200g`  
+   - **Air Resistance** → Enabled  
+
+### **📊 4.2 Simulating Flight Characteristics**
+1️⃣ Connect **Battery → ESC → Motor → Drone Model**  
+2️⃣ Set **Flight Conditions** (Hover, Cruise, or Max Thrust)  
+3️⃣ Click **"Run Simulation"** to analyze:  
+   - **Battery Voltage Drop Over Time**  
+   - **Current Draw at Different Thrust Levels**  
+   - **Estimated Flight Time**  
+
+---
+
+## **📌 5. Testing & Optimizing the Battery System**
+### **⚡ 5.1 Flight Time Estimation**
+1️⃣ Add a **Power Calculation Block**:  
+   - `Simscape → Electrical → Sensors & Measurements → Power Sensor`  
+2️⃣ Measure Power Draw = **Voltage × Current**  
+3️⃣ Estimate Flight Time using:  
+   \[
+   \text{Flight Time} = \frac{\text{Battery Capacity (mAh)}}{\text{Average Current Draw (mA)}}
+   \]
+
+---
+
+## **📌 6. Advanced Features (Optional)**
+### **🔹 Battery Management System (BMS) using Stateflow**
+- Use **Stateflow** to add logic for:
+  ✅ **Overvoltage/Undervoltage Protection**  
+  ✅ **Battery Cell Balancing**  
+  ✅ **Temperature Monitoring**  
+
+### **📡 Real-Time Monitoring with Simulink Dashboard**
+- Use the **Simulink Dashboard** to display:
+  ✅ Battery Voltage & Current  
+  ✅ Drone Altitude & Speed  
+  ✅ Power Consumption Graphs  
+
+---
+
+## **📌 7. References & Learning Resources**
+### **📚 MATLAB Official Documentation**
+🔗 [Simulink Getting Started Guide](https://www.mathworks.com/help/simulink/)  
+🔗 [Aerospace Blockset Overview](https://www.mathworks.com/products/aerospace-blockset.html)  
+🔗 [Battery Modeling with Simscape](https://www.mathworks.com/help/physmod/sps/ug/battery-model.html)  
+
+### **🎥 Video Tutorials**
+📺 [Simulink for UAV Simulation (YouTube)](https://www.youtube.com/watch?v=RuEQ3RUKmXE)  
+📺 [Simscape Electrical for Power Systems](https://www.youtube.com/watch?v=Mu8JHlDZtv4)  
+
+---
+
