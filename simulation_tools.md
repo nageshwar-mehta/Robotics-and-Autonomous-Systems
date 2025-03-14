@@ -182,3 +182,55 @@ This setup closely resembles a **DJI Phantom 4 Pro** drone with a **custom LiPo 
 
 ---
 
+### **🚀 Guide to Using Rotorgeeks LiPo Flight Time Calculator**  
+🔗 **Go to Rotorgeeks LiPo Calculator:** [https://rotorgeeks.com/lipo-calculator](https://rotorgeeks.com/lipo-calculator)  
+
+---
+
+## **📌 Step-by-Step Example Setup (DJI Phantom 4 Equivalent)**
+We will use a **DJI Phantom 4-like quadcopter setup** as an example.
+
+---
+
+### **1️⃣ Input Battery Specifications**
+| **Parameter**   | **Example Value** |
+|----------------|------------------|
+| **Battery Voltage (S Count)** | **4S (14.8V nominal, 16.8V max)** |
+| **Battery Capacity** | **6000mAh** |
+| **Battery C-Rating** | **25C** (for high power) |
+| **Battery Weight** | **500g (LiPo) or 900g (Li-Ion)** |
+
+---
+
+### **2️⃣ Enter Drone Power Consumption**
+| **Parameter**   | **Example Value** |
+|----------------|------------------|
+| **Amperage at Hover** | **12A** (for Phantom 4-sized drones) |
+| **Amperage at Full Throttle** | **45A** |
+| **Number of Motors** | **4** |
+
+💡 **How to Find Amperage Values?**
+- Use **motor datasheets** (e.g., **DJI 2312 960KV motors consume ~3A at hover**).
+- Measure with an **amp meter or eCalc (previous guide)**.
+
+---
+
+### **3️⃣ Click "Calculate"**  
+Once you input the values, press **Calculate** to get:  
+✅ **Estimated Hover Time**  
+✅ **Full Throttle Time**  
+✅ **Battery Discharge Rate & Efficiency**  
+
+---
+
+### **📊 Expected Results for Phantom 4 Setup**
+| **Battery Type** | **Hover Time** | **Full Throttle Time** |
+|----------------|--------------|----------------|
+| **4S 6000mAh LiPo (25C)** | **28-30 min** | **10-12 min** |
+| **4S 6000mAh Li-Ion (10C)** | **35-40 min** | **12-15 min** |
+
+📌 **Key Takeaways:**  
+✅ **LiPo is best for high-power and aggressive flying.**  
+✅ **Li-Ion gives longer flight time but lower discharge capacity.**  
+
+---
