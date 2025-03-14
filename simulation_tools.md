@@ -500,4 +500,126 @@ This MATLAB script will:
 3. **Open Simulink** to visualize the model.  
 4. **Simulate** and analyze battery performance.  
 
+---
+
+# PX4 SITL & Gazebo: Drone Hardware Simulation Guide
+
+## **Overview**
+This guide provides step-by-step instructions to set up and run **PX4 Software-in-the-Loop (SITL) with Gazebo** for drone hardware simulation. PX4 SITL allows testing of **flight controllers, sensors, and autonomous behavior** in a realistic simulation environment.
+
+## **Features**
+✅ Full PX4 SITL setup with Gazebo 3D simulation
+✅ MAVLink integration for real-time telemetry
+✅ QGroundControl support for mission planning
+✅ Customizable drone parameters (Battery, GPS, Flight Modes, etc.)
+✅ Different drone models: Quadcopter, Fixed-wing, VTOL
+
+---
+
+## **📌 System Requirements**
+- **Ubuntu 20.04 or 22.04** (Preferred OS)
+- **At least 8GB RAM and a dedicated GPU**
+
+---
+
+## **🔧 Step 1: Install Prerequisites**
+### **Install Required Packages**
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install git wget zip cmake ninja-build exiftool \
+  python3-pip python3-pyserial python3-dev python3-setuptools \
+  python3-pyulog python3-toml python3-numpy python3-pandas python3-jinja2 \
+  x11-xserver-utils xterm gdb valgrind \
+  build-essential gnupg flex bison gperf \
+  autoconf automake texinfo libtool \
+  libftdi-dev libgmp-dev libmpc-dev libmpfr-dev libncurses5-dev \
+  libusb-1.0-0-dev python3-venv
+```
+
+### **Install PX4 Firmware**
+```bash
+cd ~
+git clone --recursive https://github.com/PX4/PX4-Autopilot.git
+cd PX4-Autopilot
+bash ./Tools/setup/ubuntu.sh
+```
+🔄 **Restart your terminal** after installation.
+
+---
+
+## **🚀 Step 2: Run PX4 SITL with Gazebo**
+Run the standard **quadcopter simulation**:
+```bash
+cd ~/PX4-Autopilot
+make px4_sitl gazebo
+```
+This will start:
+- **PX4 SITL firmware**
+- **Gazebo Simulator with the Quadcopter model**
+- **MAVLink Communication for telemetry**
+
+---
+
+## **🎮 Step 3: Connect QGroundControl (Optional)**
+QGroundControl (QGC) is a GUI-based mission planner for PX4.
+
+### **Install QGroundControl**
+```bash
+wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
+chmod +x QGroundControl.AppImage
+./QGroundControl.AppImage
+```
+✅ **Click ‘Add New Vehicle’ → Connect via UDP (Port: 14550)**
+
+---
+
+## **📡 Step 4: Simulating Different Drone Models**
+To change the drone model:
+```bash
+make px4_sitl gazebo_iris  # Standard quadcopter
+make px4_sitl gazebo_plane  # Fixed-wing aircraft
+make px4_sitl gazebo_tiltrotor  # VTOL tiltrotor
+make px4_sitl gazebo_standard_vtol  # VTOL drone
+```
+
+---
+
+## **🔬 Step 5: Customize Drone Parameters**
+You can modify PX4 parameters for **battery, GPS, flight modes, etc.**
+
+### **Modify PX4 Parameter File**
+```bash
+nano ~/PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/rcS
+```
+Modify values such as:
+```bash
+param set BAT_CAPACITY 3000  # Battery Capacity (mAh)
+param set GPS_USE 1  # Enable GPS
+param set MPC_XY_CRUISE 5.0  # Set horizontal cruise speed
+```
+🔹 Save the file (`Ctrl+X`, then `Y`, then `Enter`) and restart SITL.
+
+---
+
+## **📊 Step 6: Analyzing Flight Logs**
+Flight logs are stored in:
+```bash
+~/.ros/log/latest
+```
+To visualize flight data:
+```bash
+pyulog ~/path-to-log.ulg
+```
+Or upload logs to **[Flight Review](https://logs.px4.io/)** for analysis.
+
+---
+
+## **🎯 Advanced Topics**
+🔹 **ROS2 Integration:** Use PX4 with ROS for **autonomous navigation**
+🔹 **Real Hardware Testing:** Flash PX4 firmware to **Pixhawk flight controllers**
+🔹 **GPS & LiDAR Integration:** Test **GPS waypoint missions** and **obstacle avoidance** in Gazebo
+
+---
+
+
 
