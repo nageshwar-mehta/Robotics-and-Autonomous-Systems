@@ -234,3 +234,68 @@ Once you input the values, press **Calculate** to get:
 ✅ **Li-Ion gives longer flight time but lower discharge capacity.**  
 
 ---
+
+### **🚀 Guide to Using WebOCalc - Open Source Drone Power Calculator**  
+🔗 **Go to WebOCalc:** [https://www.miniquadtestbench.com/tools/webocalc.html](https://www.miniquadtestbench.com/tools/webocalc.html)  
+
+---
+
+## **📌 Step-by-Step Example Setup (DJI Phantom 4 Equivalent)**  
+WebOCalc helps estimate **power consumption, battery endurance, and efficiency**. We will use a **DJI Phantom 4-like quadcopter setup** as an example.  
+
+---
+
+### **1️⃣ Enter General Drone Information**  
+| **Parameter**   | **Example Value** |
+|----------------|------------------|
+| **Frame Type** | **Quadcopter** |
+| **Frame Size** | **350mm (DJI Phantom size)** |
+| **Total Weight (incl. battery)** | **1.4 kg (1400g)** |
+
+---
+
+### **2️⃣ Enter Battery Specifications**  
+| **Parameter**   | **Example Value (LiPo)** | **Example Value (Li-Ion)** |
+|----------------|----------------|----------------|
+| **Battery Type** | LiPo | Li-Ion |
+| **Battery Voltage (Nominal)** | **14.8V (4S)** | **14.8V (4S)** |
+| **Battery Capacity** | **6000mAh** | **6000mAh** |
+| **Battery C-Rating** | **25C** | **10C** |
+| **Battery Weight** | **500g** | **900g** |
+
+---
+
+### **3️⃣ Enter Motor & Propeller Information**  
+| **Parameter**   | **Example Value** |
+|----------------|------------------|
+| **Motor KV (RPM per Volt)** | **900KV** |
+| **Motor Power (Each)** | **120W - 150W** |
+| **Motor Max Current** | **20A (total 80A for 4 motors)** |
+| **Propeller Size** | **9.4-inch (9450)** |
+| **Propeller Pitch** | **4.5 inches** |
+
+🔹 **Example Motors:** DJI 2312 960KV, T-Motor MN2212 920KV, or similar.  
+
+---
+
+### **4️⃣ Click "Calculate" to Get Results**  
+Once you enter all values, **click "Calculate"** to get:  
+✅ **Hover time** (How long the drone can stay in the air at hover)  
+✅ **Full-throttle time** (Battery runtime at max throttle)  
+✅ **Power consumption** (Amps drawn by motors at different speeds)  
+✅ **Efficiency analysis** (Best battery-motor-propeller combo)  
+
+---
+
+### **📊 Expected Results for DJI Phantom 4 Setup**
+| **Battery Type** | **Hover Time** | **Full Throttle Time** |
+|----------------|--------------|----------------|
+| **4S 6000mAh LiPo (25C)** | **28-30 min** | **10-12 min** |
+| **4S 6000mAh Li-Ion (10C)** | **35-40 min** | **12-15 min** |
+
+📌 **Key Takeaways:**  
+✅ **LiPo is better for aggressive flights & high current draw.**  
+✅ **Li-Ion gives longer flight time but has lower max current output.**  
+✅ **The tool helps you optimize your drone for endurance or performance.**  
+
+---
