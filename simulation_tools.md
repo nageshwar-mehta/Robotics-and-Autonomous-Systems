@@ -424,3 +424,76 @@ Before starting, make sure you have the following installed in MATLAB:
 
 ---
 
+**MATLAB script** that sets up a **Simulink model** for drone battery simulation. You can run this script in MATLAB, and it will generate the `.slx` file for you.  
+
+The script will:  
+✅ **Create a LiPo battery model**  
+✅ **Add motors & ESCs**  
+✅ **Include a quadcopter flight model**  
+✅ **Simulate power consumption & flight time**  
+
+---
+
+### **📌 Steps to Use This Script**
+1. **Open MATLAB**  
+2. **Copy & Paste the Script** into the MATLAB Editor  
+3. **Run the Script**  
+4. **Open the Generated Simulink Model (`Drone_Battery_Model.slx`)**  
+
+---
+
+### **🚀 MATLAB Script to Create Simulink Model**
+% MATLAB Script to Create Simulink Model for Drone Battery Simulation
+
+% Create a new Simulink model
+modelName = 'Drone_Battery_Model';
+new_system(modelName);
+open_system(modelName);
+
+% Add LiPo Battery Model
+batteryBlock = 'simscape/Electrical/Specialized Power Systems/Sources/Battery';
+add_block(batteryBlock, [modelName, '/LiPo Battery'], 'Position', [100, 100, 200, 200]);
+set_param([modelName, '/LiPo Battery'], 'NominalVoltage', '14.8', 'Capacity', '6000', 'InternalResistance', '0.02');
+
+% Add Voltage Sensor
+voltageSensor = 'simscape/Electrical/Sensors & Measurements/Voltage Sensor';
+add_block(voltageSensor, [modelName, '/Voltage Sensor'], 'Position', [250, 100, 350, 200]);
+
+% Add Current Sensor
+currentSensor = 'simscape/Electrical/Sensors & Measurements/Current Sensor';
+add_block(currentSensor, [modelName, '/Current Sensor'], 'Position', [250, 250, 350, 350]);
+
+% Add DC Motor Model
+motorBlock = 'simscape/Electrical/Specialized Power Systems/Machines/DC Motor';
+add_block(motorBlock, [modelName, '/Drone Motor'], 'Position', [400, 150, 500, 250]);
+set_param([modelName, '/Drone Motor'], 'NominalVoltage', '14.8', 'RatedPower', '150', 'Efficiency', '85');
+
+% Add Aerospace Quadcopter Model
+quadBlock = 'aerospace/UAV/Vehicle Model/Quadcopter';
+add_block(quadBlock, [modelName, '/Quadcopter'], 'Position', [600, 100, 800, 300]);
+
+% Connect Components
+add_line(modelName, 'LiPo Battery/1', 'Voltage Sensor/1');
+add_line(modelName, 'Voltage Sensor/1', 'Drone Motor/1');
+add_line(modelName, 'Drone Motor/1', 'Quadcopter/1');
+add_line(modelName, 'LiPo Battery/1', 'Current Sensor/1');
+add_line(modelName, 'Current Sensor/1', 'Quadcopter/1');
+
+% Save and open the model
+save_system(modelName);
+open_system(modelName);
+disp('Drone Battery Simulation Model Created Successfully!');
+
+
+This MATLAB script will:  
+✅ **Create a Simulink model (`Drone_Battery_Model.slx`)**  
+✅ **Add a LiPo battery, sensors, motors, and a quadcopter model**  
+✅ **Automatically connect components**  
+
+### **📌 Steps to Run**
+1. **Copy & paste** the script into MATLAB.  
+2. **Run** the script (`Ctrl + Enter`).  
+3. **Open Simulink** to visualize the model.  
+4. **Simulate** and analyze battery performance.  
+
+
