@@ -165,7 +165,7 @@ Let’s assume:
 | Method                    | Accuracy    | Tools Needed                      | 
 |---------------------------|-------------|-----------------------------------|
 | **Datasheet Calculation** | Medium       | Motor & propeller datasheets      | 
-| **eCalc Simulation**      | Medium-High  | \href{https://www.ecalc.ch/xcoptercalc.php}     |
+| **eCalc Simulation**      | Medium-High  | https://www.ecalc.ch/xcoptercalc.php     |
 | **Mission Planner Logs**  | High         | Flight controller + telemetry log | 
 | **Empirical Estimation**  | Low-Medium   | Previous drone data or references | 
 
