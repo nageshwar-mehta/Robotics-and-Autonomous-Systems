@@ -75,6 +75,7 @@ When analyzing **battery power consumption** in drone flights, the total flight 
 
 ---
 
+
 1. **Battery specifications**, and  
 2. **Current consumption (or power draw)** of the drone in each stage.
 
@@ -82,7 +83,7 @@ Let’s break this down in a clean, practical way.
 
 ---
 
-## Key Battery Specifications Needed**
+## 🔋 **1. Key Battery Specifications Needed**
 
 | Spec | Symbol | Unit | Description |
 |------|--------|------|-------------|
@@ -94,7 +95,7 @@ Let’s break this down in a clean, practical way.
 
 ---
 
-##  **Estimating Flight Time per Stage**
+## ⏱️ **2. Estimating Flight Time per Stage**
 
 We can use this basic formula for each stage:
 
