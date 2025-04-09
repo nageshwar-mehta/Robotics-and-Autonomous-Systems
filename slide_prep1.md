@@ -158,3 +158,39 @@ Let’s assume:
 4. Add safety margin (leave 10–20% capacity unused)
 
 ---
+
+Great point! To improve the accuracy and **safety** of your flight time estimations, you should **include a safety margin** in the formula to **avoid over-discharging the battery**.
+
+---
+
+### ✅ **Improved Formula with Safety Margin**
+
+Let:
+
+- \( C_{\text{nominal}} \) = nominal battery capacity (Ah)  
+- \( M \) = safety margin (in decimal, e.g., 0.1 for 10%)  
+- \( C_{\text{usable}} = (1 - M) \times C_{\text{nominal}} \)  
+- \( I_{\text{stage}} \) = current draw during that stage (A)
+
+**stage time** :
+
+\[
+\boxed{
+\text{Time}_{\text{stage}} = \frac{(1 - M) \times C_{\text{nominal}}}{I_{\text{stage}}}
+}
+\]
+
+---
+
+### 🧮 **Example (with 10% safety margin)**
+
+- Battery: 2200 mAh = 2.2 Ah  
+- Safety Margin: 10% → \( M = 0.1 \)  
+- Usable capacity: \( 2.2 \times (1 - 0.1) = 1.98 \, \text{Ah} \)  
+- Hover current: 15 A
+
+\[
+\text{Time}_{\text{hover}} = \frac{1.98}{15} = 0.132 \, \text{hr} \approx \boxed{7.9 \text{ min}}
+\]
+
+---
