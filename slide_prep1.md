@@ -94,7 +94,7 @@ Let’s break this down in a clean, practical way.
 
 ---
 
-##  Estimating Flight Time per Stage**
+##  **Estimating Flight Time per Stage**
 
 We can use this basic formula for each stage:
 
